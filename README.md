@@ -4,10 +4,7 @@
 > Date : 2021 / 4 / 5<br>
 > List :
 >
-> > <a href = "#description">Description</a><br>
-> > <a href = "#algorithm">Algorithms</a><br>
-> > <a href = "#exercise">Exercise Essentials</a><br>
-> > <a href = "#reference">Reference</a>
+> > <a href = "#description">Description</a><br> > > <a href = "#algorithms">Algorithms</a><br> > > <a href = "#exercise">Exercise Essentials</a><br> > > <a href = "#reference">Reference</a>
 
 ---
 
