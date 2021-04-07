@@ -226,6 +226,7 @@ if __name__ == '__main__':
     if maze[1][1] == '*' or maze[hight-2][width-2] == '*':
         print()
         print("No solution ! ( start or end position is '*' )")
+        SysExit()
         sys.exit()
 
     path_g = Graph()
@@ -248,6 +249,7 @@ if __name__ == '__main__':
     if path[len(path)-1] == target_vertex.id and (hight != 3 or width != 3):
         print()
         print("No solution ! ( There is no route from the start-position to the end-position )")
+        SysExit()
         sys.exit()
 
     path_of_maze = [[0] * (width) for i in range(hight)]
