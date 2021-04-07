@@ -7,7 +7,8 @@
 > > <a href = "#description">Description</a><br>
 > > <a href = "#algorithms">Algorithms</a><br>
 > > <a href = "#exercise">Exercise Essentials</a><br>
-> > <a href = "#reference">Reference</a>
+> > <a href = "#reference">Reference</a><br>
+> > <a href = "#execute">How to Execute</a>
 
 ---
 
@@ -54,9 +55,57 @@ I will use the following three algorithms to perform the exercise:
 </div>
 <br>
 <br>
+<div id = "execute">
+
+## How to Execute
+
+<br>
+
+## If you have the `make` commend :
+
+If your device supports the `make` command, this will be much easier ( because my file name is very long... ).<br>
+You can type `make` in Terminal to see the output of all Python files directly.<br>
+You can also type in :<br>
+
+> <p>>>>make<br>
+> // Output all the execution results</p>
+
+> <p>>>>make p1 <br>
+> // Output the execution result of P1_UCS </p>
+
+> <p>>>>make p2 <br>
+> // Output the execution result of P2_IDS </p>
+
+> <p>>>>make p3 <br>
+> // Output the execution result of P3_IDSSTAR </p>
+
+<br>
+
+## If you <font color = "red">do not</font> have the `make` commend :
+
+If your device <b><font color = "red">does not</font></b> supports the `make` command, there will be a little inconvenience ( because my file name is very long... ).<br>
+You can type in :<br>
+
+> <p>>>>python mazeMaker.py <br>
+> // If you want to random the looks of maze in input.txt</p>
+
+> <p>>>>python P1_UCS.py <br>
+> // Output the execution result of P1_UCS </p>
+
+> <p>>>>python P2_IDS.py <br>
+> // Output the execution result of P2_IDS </p>
+
+> <p>>>>python P3_IDSSTAR.py <br>
+> // Output the execution result of P3_IDSSTAR </p>
+
+</div>
+<br>
+<br>
 <div id = "reference">
 
 ## Reference
 
 1. <a href = "https://www.bogotobogo.com/python/python_Dijkstras_Shortest_Path_Algorithm.php">DIJKSTRA'S SHORTEST PATH ALGORITHM</a>
 2. <a href = "https://en.wikipedia.org/wiki/Iterative_deepening_depth-first_search">Iterative deepening depth-first search</a>
+
+</div>
