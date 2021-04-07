@@ -4,8 +4,8 @@ import sys
 # Global Variable
 # np.random.seed(1)
 # needs to small than 1000 x 1000
-hight = 9
-width = 9
+hight = 10
+width = 10
 maze = [[0] * width for i in range(hight)]
 
 
@@ -22,6 +22,9 @@ def MazeMaker(maze, h, w):
         for j in range(w):
             if i == 0 or j == 0 or i == h-1 or j == w-1:
                 maze[i][j] = '*'
+            # Set no solution statement
+            # elif (i == h - 3 and j == w-2) or (i == h - 2 and j == w-3):
+            #     maze[i][j] = '*'
             else:
                 tmp = int(np.random.random()*12)
                 if tmp >= 10:

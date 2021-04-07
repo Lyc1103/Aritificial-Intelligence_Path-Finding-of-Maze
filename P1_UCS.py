@@ -164,7 +164,8 @@ def Dijkstra(aGraph, start, target):
 # end func Dijkstra
 
 
-def MakePathOfMaze(path, path_of_maze, hight, width):
+def MakePathOfMaze(maze, path, path_of_maze, hight, width):
+    cost = 0
     for i in range(hight):
         for j in range(width):
             path_of_maze[i][j] = maze[i][j]
@@ -175,6 +176,9 @@ def MakePathOfMaze(path, path_of_maze, hight, width):
         next_pos = path[i-1].split('_')
         next_pos_r = int(next_pos[0])
         next_pos_c = int(next_pos[1])
+        cost = cost + 10 + \
+            (int(maze[now_pos_r][now_pos_c]) -
+             int(maze[next_pos_r][next_pos_c]))**2
         if next_pos_c - now_pos_c == 1:
             path_of_maze[next_pos_r][next_pos_c] = '>'
         elif next_pos_r - now_pos_r == 1:
@@ -185,6 +189,8 @@ def MakePathOfMaze(path, path_of_maze, hight, width):
             path_of_maze[next_pos_r][next_pos_c] = '^'
     path_of_maze[1][1] = 'S'
     path_of_maze[hight-2][width-2] = 'T'
+
+    return cost
 # end func MakePathOfMaze
 
 
@@ -245,11 +251,12 @@ if __name__ == '__main__':
         sys.exit()
 
     path_of_maze = [[0] * (width) for i in range(hight)]
-    MakePathOfMaze(path, path_of_maze, hight, width)
+    cost = MakePathOfMaze(maze, path, path_of_maze, hight, width)
 
     print("\nThe shortest path in maze is :")
     PrintMaze(path_of_maze, hight, width)
     print("\nThe shortest path in a list is :\n%s" % (path[::-1]))
+    print("The cost is : %d\n" % (cost))
 
     exec_time = SysExit()
     WriteToOutputFile(path_of_maze, path, hight, width, exec_time)

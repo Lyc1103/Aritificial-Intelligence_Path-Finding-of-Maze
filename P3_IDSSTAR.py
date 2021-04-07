@@ -4,7 +4,7 @@ import time
 import heapq
 import sys
 import numpy as np
-print("\n============= P3_IDSDTAR =============")
+print("\n============= P3_IDSSTAR =============")
 # Calculate execution time
 _start_time = time.time()
 
@@ -22,6 +22,8 @@ class Vertex:
         self.visited_adjacent = []
         # Set distance to infinity for all nodes
         self.distance = sys.maxsize
+        # Set cost to infinity for all nodes
+        self.cost = sys.maxsize
         # Mark all nodes unvisited
         self.visited = False
         # Predecessor
@@ -37,6 +39,9 @@ class Vertex:
 
     def set_distance(self, dist):
         self.distance = dist
+
+    def set_cost(self, costs):
+        self.cost = costs
 
     def set_visited(self):
         self.visited = True
@@ -54,6 +59,7 @@ class Vertex:
         for i in range(len(self.visited_adjacent)):
             self.visited_adjacent.pop()
         self.distance = sys.maxsize
+        self.cost = sys.maxsize
         self.adjacent_num = 0
         self.visited = False
         self.level = 0
@@ -165,11 +171,12 @@ def DLSSTAR(start, target, limit, cost, path):
         current.set_visited()
 
         if current.id == target.id:
-            cur_cost = current.distance
+            cur_cost = current.cost
             if cur_cost < cost:
-                cost = current.distance
+                cost = current.cost
                 ResetPath(target, path)
                 ShortestPath(target, path)
+            continue
         if current.level == limit:
             continue
 
@@ -182,13 +189,14 @@ def DLSSTAR(start, target, limit, cost, path):
             id_x = int(next_id[1])
             new_dist = current.distance + current.get_weight(
                 next) + ((width-2) - id_x) + ((hight-2) - id_y)
+            new_cost = current.cost + current.get_weight(next)
             if new_dist < next.distance:
                 next.set_distance(new_dist)
+                next.set_cost(new_cost)
                 next.set_previous(current)
                 next.level = current.level + 1
                 heapq.heappush(unvisited_queue,
                                (next.distance, next.id, next))
-    return cost
 # end func DLSSTAR
 
 
@@ -197,14 +205,20 @@ def IDDFSSTAR(aGraph, start, target, limit, path):
     for i in range(1, limit):
         # Set the diatance for the start node to zero
         start.set_distance(0)
+        # Set the cost for the start node to zero.
+        # Because we use ".distance" to filter the future path to take,
+        # so the cost must be calculated separately, in case the long
+        # way around but lower energy consumption is ignored.
+        start.set_cost(0)
         start.set_level(0)
-        cost = DLSSTAR(start, target, i, cost, path)
+        DLSSTAR(start, target, i, cost, path)
         for v in aGraph:
             v.reset()
 # end fund IDDFSSTAR
 
 
-def MakePathOfMaze(path, path_of_maze, hight, width):
+def MakePathOfMaze(maze, path, path_of_maze, hight, width):
+    cost = 0
     for i in range(hight):
         for j in range(width):
             path_of_maze[i][j] = maze[i][j]
@@ -215,6 +229,9 @@ def MakePathOfMaze(path, path_of_maze, hight, width):
         next_pos = path[i-1].split('_')
         next_pos_r = int(next_pos[0])
         next_pos_c = int(next_pos[1])
+        cost = cost + 10 + \
+            (int(maze[now_pos_r][now_pos_c]) -
+             int(maze[next_pos_r][next_pos_c]))**2
         if next_pos_c - now_pos_c == 1:
             path_of_maze[next_pos_r][next_pos_c] = '>'
         elif next_pos_r - now_pos_r == 1:
@@ -225,6 +242,8 @@ def MakePathOfMaze(path, path_of_maze, hight, width):
             path_of_maze[next_pos_r][next_pos_c] = '^'
     path_of_maze[1][1] = 'S'
     path_of_maze[hight-2][width-2] = 'T'
+
+    return cost
 # end func MakePathOfMaze
 
 
@@ -276,11 +295,12 @@ if __name__ == '__main__':
         sys.exit()
 
     path_of_maze = [[0] * (width) for i in range(hight)]
-    MakePathOfMaze(path, path_of_maze, hight, width)
+    cost = MakePathOfMaze(maze, path, path_of_maze, hight, width)
 
     print("\nThe shortest path in maze is :")
     PrintMaze(path_of_maze, hight, width)
     print("\nThe shortest path in a list is :\n%s" % (path[::-1]))
+    print("The cost is : %d\n" % (cost))
 
     exec_time = SysExit()
     WriteToOutputFile(path_of_maze, path, hight, width, exec_time)

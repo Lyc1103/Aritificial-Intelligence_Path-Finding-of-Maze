@@ -166,6 +166,7 @@ def DLS(current, target, limit, cost, path):
     current.reset()
     while(1):
         if current.id == '1_1' and len(current.adjacent) == len(current.visited_adjacent):
+            current.reset()
             return False
         if current.id == target.id:
             cur_cost = current.distance
@@ -213,19 +214,24 @@ def IDDFS(start, target, limit, path, aGraph):
         # Set the diatance for the start node to zero
         start.set_distance(0)
         start.set_level(0)
+        # print("limit = %d" % (i))
         DLS(start, target, i, sys.maxsize, path)
         if len(path) > 1:
             num = num + 1
-        for v in aGraph:
-            v.reset()
+        # for v in aGraph:
+        #     v.reset()
         if num >= 5:
+            break
+        if len(path) == 1 and i > (limit/2 + limit**0.5):
             break
 # ebd func IDDFS
 
 
-def MakePathOfMaze(path, path_of_maze, hight, width):
+def MakePathOfMaze(maze, path, path_of_maze, hight, width):
+    cost = 0
     for i in range(hight):
-        path_of_maze[i] = maze[i]
+        for j in range(width):
+            path_of_maze[i][j] = maze[i][j]
     for i in range(len(path)-1, 0, -1):
         now_pos = path[i].split('_')
         now_pos_r = int(now_pos[0])
@@ -233,6 +239,9 @@ def MakePathOfMaze(path, path_of_maze, hight, width):
         next_pos = path[i-1].split('_')
         next_pos_r = int(next_pos[0])
         next_pos_c = int(next_pos[1])
+        cost = cost + 10 + \
+            (int(maze[now_pos_r][now_pos_c]) -
+             int(maze[next_pos_r][next_pos_c]))**2
         if next_pos_c - now_pos_c == 1:
             path_of_maze[next_pos_r][next_pos_c] = '>'
         elif next_pos_r - now_pos_r == 1:
@@ -243,6 +252,8 @@ def MakePathOfMaze(path, path_of_maze, hight, width):
             path_of_maze[next_pos_r][next_pos_c] = '^'
     path_of_maze[1][1] = 'S'
     path_of_maze[hight-2][width-2] = 'T'
+
+    return cost
 # end func MakePathOfMaze
 
 
@@ -297,11 +308,12 @@ if __name__ == '__main__':
         sys.exit()
 
     path_of_maze = [[0] * width for i in range(hight)]
-    MakePathOfMaze(path, path_of_maze, hight, width)
+    cost = MakePathOfMaze(maze, path, path_of_maze, hight, width)
 
     print("\nThe shortest path in maze is :")
     PrintMaze(path_of_maze, hight, width)
     print("\nThe shortest path in a list is :\n%s" % (path[::-1]))
+    print("The cost is : %d\n" % (cost))
 
     exec_time = SysExit()
     WriteToOutputFile(path_of_maze, path, hight, width, exec_time)
