@@ -4,7 +4,7 @@ import time
 import heapq
 import sys
 import numpy as np
-print("\n============= P3_IDSSTAR =============")
+print("\n============= P3_IDASTAR =============")
 # Calculate execution time
 _start_time = time.time()
 
@@ -256,7 +256,7 @@ def SysExit():
 
 
 def WriteToOutputFile(path_of_maze, path, h, w, exec_time):
-    with open("P3_IDSSTAR_output.txt", mode="w") as file:
+    with open("P3_IDASTAR_output.txt", mode="w") as file:
         file.write("The shortest path in maze is :\n")
         for i in range(h):
             for j in range(w-1):

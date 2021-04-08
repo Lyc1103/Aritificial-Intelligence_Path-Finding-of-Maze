@@ -209,19 +209,13 @@ def DLS(current, target, limit, cost, path):
 
 
 def IDDFS(start, target, limit, path, aGraph):
-    num = 0
     for i in range(1, limit):
         # Set the diatance for the start node to zero
         start.set_distance(0)
         start.set_level(0)
-        # print("limit = %d" % (i))
         DLS(start, target, i, sys.maxsize, path)
         if len(path) > 1:
-            num = num + 1
-        # for v in aGraph:
-        #     v.reset()
-        if num >= 5:
-            break
+            return
         if len(path) == 1 and i > (limit/2 + limit**0.5):
             break
 # ebd func IDDFS

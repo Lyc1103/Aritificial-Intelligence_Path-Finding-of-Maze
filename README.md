@@ -4,11 +4,7 @@
 > Date : 2021 / 4 / 5<br>
 > List :
 >
-> > <a href = "#description">Description</a><br>
-> > <a href = "#algorithms">Algorithms</a><br>
-> > <a href = "#exercise">Exercise Essentials</a><br>
-> > <a href = "#reference">Reference</a><br>
-> > <a href = "#execute">How to Execute</a>
+> > <a href = "#description">Description</a><br><a href = "#algorithms">Algorithms</a><br><a href = "#exercise">Exercise Essentials</a><br><a href = "#reference">Reference</a><br><a href = "#execute">How to Execute</a>
 
 ---
 
@@ -59,8 +55,6 @@ I will use the following three algorithms to perform the exercise:
 
 ## How to Execute
 
-<br>
-
 ## If you have the `make` commend :
 
 If your device supports the `make` command, this will be much easier ( because my file name is very long... ).<br>
@@ -77,7 +71,7 @@ You can also type in :<br>
 > // Output the execution result of P2_IDS </p>
 
 > <p>>>>make p3 <br>
-> // Output the execution result of P3_IDSSTAR </p>
+> // Output the execution result of P3_IDASTAR </p>
 
 <br>
 
@@ -96,7 +90,7 @@ You can type in :<br>
 > // Output the execution result of P2_IDS </p>
 
 > <p>>>>python P3_IDSSTAR.py <br>
-> // Output the execution result of P3_IDSSTAR </p>
+> // Output the execution result of P3_IDASTAR </p>
 
 </div>
 <br>

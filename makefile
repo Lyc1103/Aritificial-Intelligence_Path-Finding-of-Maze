@@ -3,7 +3,7 @@ all:
 	python mazeMaker.py
 	python P1_UCS.py
 	python P2_IDS.py
-	python P3_IDSSTAR.py
+	python P3_IDASTAR.py
 p1:
 	cls
 	python mazeMaker.py
@@ -15,4 +15,4 @@ p2:
 p3:
 	cls
 	python mazeMaker.py
-	python P3_IDSSTAR.py
+	python P3_IDASTAR.py
