@@ -89,7 +89,7 @@ You can type in :<br>
 > <p>>>>python P2_IDS.py <br>
 > // Output the execution result of P2_IDS </p>
 
-> <p>>>>python P3_IDSSTAR.py <br>
+> <p>>>>python P3_IDASTAR.py <br>
 > // Output the execution result of P3_IDASTAR </p>
 
 </div>
