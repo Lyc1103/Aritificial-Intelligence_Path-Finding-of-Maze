@@ -57,7 +57,7 @@ I will use the following three algorithms to perform the exercise:
 
 ## If you have the `make` commend :
 
-If your device supports the `make` command, this will be much easier ( because my file name is very long... ).<br>
+If your device supports the `make` command, this will be much easier.<br>
 You can type `make` in Terminal to see the output of all Python files directly.<br>
 You can also type in :<br>
 
@@ -77,7 +77,7 @@ You can also type in :<br>
 
 ## If you <font color = "red">do not</font> have the `make` commend :
 
-If your device <b><font color = "red">does not</font></b> supports the `make` command, there will be a little inconvenience ( because my file name is very long... ).<br>
+If your device <b><font color = "red">does not</font></b> supports the `make` command, there will be a little inconvenience.<br>
 You can type in :<br>
 
 > <p>>>>python mazeMaker.py <br>
