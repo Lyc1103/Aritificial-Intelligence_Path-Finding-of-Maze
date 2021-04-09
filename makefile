@@ -22,5 +22,4 @@ p3:
 bonus:
 	cls
 	python mazeMaker.py
-	python P1_UCS.py
 	python BidirectionalSearch.py
