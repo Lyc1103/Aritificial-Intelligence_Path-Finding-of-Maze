@@ -30,6 +30,8 @@ I will use the following three algorithms to perform the exercise:
 2. Iterative Deeping Depth-First Search ( IDS or IDDFS )
 3. Iterative Deeping A* ( IDA* )
 
+- Bonus : Bidirectional Search
+
 </div>
 <br>
 <br>
@@ -73,6 +75,9 @@ You can also type in :<br>
 > <p>>>>make p3 <br>
 > // Output the execution result of P3_IDASTAR </p>
 
+> <p>>>>make bonus <br>
+> // Output the execution result of BidirectiontionalSearch </p>
+
 <br>
 
 ## If you <font color = "red">do not</font> have the `make` commend :
@@ -91,6 +96,9 @@ You can type in :<br>
 
 > <p>>>>python P3_IDASTAR.py <br>
 > // Output the execution result of P3_IDASTAR </p>
+
+> <p>>>>python BidirectionalSearch.py<br>
+> // Output the execution result of BidirectionalSearch</p>
 
 </div>
 <br>
